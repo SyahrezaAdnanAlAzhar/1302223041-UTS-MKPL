@@ -16,6 +16,7 @@ public class Employee {
 	private boolean gender; //true = Laki-laki, false = Perempuan
 	
 	private DateInformation dateInformation;
+	private FamilyInformation familyInformation;
 	
 	private int monthlySalary;
 	private int otherMonthlyIncome;
