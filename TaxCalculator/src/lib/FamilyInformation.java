@@ -5,15 +5,12 @@ import java.util.ArrayList;
 public class FamilyInformation{
     private String spouseName;
 	private String spouseIdNumber;
-	private List<String> childNames;
-	private List<String> childIdNumbers;
+	private List<Child> children;
 
     public FamilyInformation(String spouseName, String spouseIdNumber){
         this.spouseName = spouseName;
         this.spouseIdNumber = spouseIdNumber;
-
-        this.childNames = new ArrayList<>();
-        this.childIdNumbers = new ArrayList<>();
+        this.children = new ArrayList<>();
     }
 
     public String getSpouseName(){
@@ -29,8 +26,17 @@ public class FamilyInformation{
         this.spouseIdNumber = spouseIdNumber
     }
 
+    public static class Child {
+        private String name;
+        private String idNumber;
+
+        public Child(String name, String idNumber) {
+            this.name = name;
+            this.idNumber = idNumber;
+        }
+    }
+
     public void addChild(String childName, String childIdNumber) {
-		childNames.add(childName);
-		childIdNumbers.add(childIdNumber);
+		children.add(new Child(name, idNumber));
 	}
 }
