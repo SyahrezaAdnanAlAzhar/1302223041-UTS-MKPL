@@ -13,13 +13,16 @@ public class Employee {
 	private String idNumber;
 	private String address;
 	private boolean isForeigner;
-	private boolean gender; //true = Laki-laki, false = Perempuan
+	private Gender gender;
 	
 	private DateInformation dateInformation;
 	private FamilyInformation familyInformation;
 	private FinancialInformation financialInformation;
 
-	
+	public static enum Gender {
+		Laki-Laki,
+		Perempuan
+	}
 	
 	public Employee(String employeeId, String firstName, String lastName, String idNumber, String address, int yearJoined, int monthJoined, int dayJoined, boolean isForeigner, boolean gender) {
 		this.employeeId = employeeId;
