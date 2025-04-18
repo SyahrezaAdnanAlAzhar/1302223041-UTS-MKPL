@@ -10,31 +10,34 @@ public class Employee {
 	private String employeeId;
 	private String firstName;
 	private String lastName;
-	private String idNumber;
 	private String address;
 	private boolean isForeigner;
-	private boolean gender; //true = Laki-laki, false = Perempuan
-	
+	private Gender gender;
 	private DateInformation dateInformation;
 	private FamilyInformation familyInformation;
 	private FinancialInformation financialInformation;
 
+	public static enum Gender {
+		Laki-Laki,
+		Perempuan
+	}
 	
-	
-	public Employee(String employeeId, String firstName, String lastName, String idNumber, String address, int yearJoined, int monthJoined, int dayJoined, boolean isForeigner, boolean gender) {
+	public Employee(String employeeId, String firstName, String lastName, String address, boolean isForeigner, Gender gender) {
 		this.employeeId = employeeId;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.idNumber = idNumber;
 		this.address = address;
-		this.yearJoined = yearJoined;
-		this.monthJoined = monthJoined;
-		this.dayJoined = dayJoined;
 		this.isForeigner = isForeigner;
 		this.gender = gender;
-		
-		childNames = new LinkedList<String>();
-		childIdNumbers = new LinkedList<String>();
+		this.financialInformation = new FinancialInformation();
+	}
+
+	public void setDateInformation(int yearJoined, int monthJoined, int dayJoined, int monthWorkingInYear){
+		this.dateInformation = new DateInformation(yearJoined, monthJoined, dayJoined, monthWorkingInYear);
+	}
+
+	public void setFamilyInformation(String spouseName, String spouseIdNumber){
+		this.familyInformation = new FamilyInformation(spouseName, spouseIdNumber);
 	}
 	
 	
