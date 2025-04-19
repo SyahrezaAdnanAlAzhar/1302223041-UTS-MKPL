@@ -22,6 +22,7 @@ public class Employee {
 		Perempuan
 	}
 	
+
 	public Employee(String employeeId, String firstName, String lastName, String address, boolean isForeigner, Gender gender) {
 		this.employeeId = employeeId;
 		this.firstName = firstName;
