@@ -10,11 +10,9 @@ public class Employee {
 	private String employeeId;
 	private String firstName;
 	private String lastName;
-	private String idNumber;
 	private String address;
 	private boolean isForeigner;
 	private Gender gender;
-	
 	private DateInformation dateInformation;
 	private FamilyInformation familyInformation;
 	private FinancialInformation financialInformation;
@@ -24,22 +22,77 @@ public class Employee {
 		Perempuan
 	}
 	
-	public Employee(String employeeId, String firstName, String lastName, String idNumber, String address, int yearJoined, int monthJoined, int dayJoined, boolean isForeigner, boolean gender) {
+
+	public Employee(String employeeId, String firstName, String lastName, String address, boolean isForeigner, Gender gender) {
 		this.employeeId = employeeId;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.idNumber = idNumber;
 		this.address = address;
-		this.yearJoined = yearJoined;
-		this.monthJoined = monthJoined;
-		this.dayJoined = dayJoined;
 		this.isForeigner = isForeigner;
 		this.gender = gender;
-		
-		childNames = new LinkedList<String>();
-		childIdNumbers = new LinkedList<String>();
+		this.financialInformation = new FinancialInformation();
+	}
+
+	public void setName(String firstName, String lastName){
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+
+	public void setAddress(String address){
+		this.address = address;
+	}
+
+	public void setIsForeigner(boolean isForeigner){
+		this.isForeigner = isForeigner;
+	}
+
+	public void setGender(Gender gender){
+		this.gender = gender;
+	}
+
+	public void setDateInformation(int yearJoined, int monthJoined, int dayJoined, int monthWorkingInYear){
+		this.dateInformation = new DateInformation(yearJoined, monthJoined, dayJoined, monthWorkingInYear);
+	}
+
+	public void setFamilyInformation(String spouseName, String spouseIdNumber){
+		this.familyInformation = new FamilyInformation(spouseName, spouseIdNumber);
+	}
+
+	public String getFirstName(){
+		return this.firstName;
+	}
+
+	public String getLastName(){
+		return this.lastName;
+	}
+
+	public String getFullName(){
+		return this.firstName + " " + this.lastName;
+	}
+
+	public String getAddress(){
+		return this.address;
+	}
+
+	public boolean getIsForeigner(){
+		return this.isForeigner;
 	}
 	
+	public Gender getGender(){
+		return this.gender;
+	}
+
+	public DateInformation getDateInformation(){
+		return this.dateInformation;
+	}
+
+	public FamilyInformation getFamilyInformation(){
+		return this.familyInformation;
+	}
+
+	public FinancialInformation getFinancialInformation(){
+		return this.financialInformation;
+	}
 	
 	public int getAnnualIncomeTax() {
 		
