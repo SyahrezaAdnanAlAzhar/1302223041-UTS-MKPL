@@ -1,4 +1,6 @@
 package lib;
+import java.time.LocalDate;
+import java.time.Month;
 
 // Class yang berisikan terkait informasi employee yang berkaitan tanggal masuk kerja dan durasi bekerja
 
@@ -8,11 +10,11 @@ public class DateInformation{
 	private int dayJoined;
 	private int monthWorkingInYear;
 
-    public DateInformation(int yearJoined, int monthJoined, int dayJoined, int monthWorkingInYear){
+    public DateInformation(int yearJoined, int monthJoined, int dayJoined){
         this.yearJoined = yearJoined;
         this.monthJoined = monthJoined;
         this.dayJoined = dayJoined;
-        this.monthWorkingInYear = monthWorkingInYear;
+        this.monthWorkingInYear = calculateMonthWorkingInYear();
     }
 
     public int getYearJoined(){
@@ -28,22 +30,31 @@ public class DateInformation{
     }
 
     public int getMonthWorkingInYear(){
-        return this.monthWorkingInYear
+        return this.monthWorkingInYear;
     }
 
     public void setYearJoined(int yearJoined){
-        this.yearJoined = yearJoined
+        this.yearJoined = yearJoined;
+        this.monthWorkingInYear = calculateMonthWorkingInYear();
     }
 
     public void setMonthJoined(int monthJoined){
-        this.monthJoined = monthJoined
+        this.monthJoined = monthJoined;
+        
+        this.monthWorkingInYear = calculateMonthWorkingInYear(); 
     }
 
     public void setDayJoined(int dayJoined){
-        this.dayJoined = dayJoined
+        this.dayJoined = dayJoined;
     }
 
-    public void setMonthWorkingInYear(int monthWorkingInYear){
-        this.monthWorkingInYear = monthWorkingInYear
+    public int calculateMonthWorkingInYear(){
+        LocalDate date = LocalDate.now();
+
+        if (date.getYear() == this.yearJoined) {
+            return date.getMonthValue() - this.monthJoined;
+        } else {
+            return 12;
+        }
     }
 }
