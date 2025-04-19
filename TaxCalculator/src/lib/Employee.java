@@ -32,6 +32,23 @@ public class Employee {
 		this.financialInformation = new FinancialInformation();
 	}
 
+	public void setName(String firstName, String lastName){
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
+
+	public void setAddress(String address){
+		this.address = address;
+	}
+
+	public void setIsForeigner(boolean isForeigner){
+		this.isForeigner = isForeigner;
+	}
+
+	public void setGender(Gender gender){
+		this.gender = gender;
+	}
+
 	public void setDateInformation(int yearJoined, int monthJoined, int dayJoined, int monthWorkingInYear){
 		this.dateInformation = new DateInformation(yearJoined, monthJoined, dayJoined, monthWorkingInYear);
 	}
@@ -39,7 +56,42 @@ public class Employee {
 	public void setFamilyInformation(String spouseName, String spouseIdNumber){
 		this.familyInformation = new FamilyInformation(spouseName, spouseIdNumber);
 	}
+
+	public String getFirstName(){
+		return this.firstName;
+	}
+
+	public String getLastName(){
+		return this.lastName;
+	}
+
+	public String getFullName(){
+		return this.firstName + " " + this.lastName;
+	}
+
+	public String getAddress(){
+		return this.address;
+	}
+
+	public boolean getIsForeigner(){
+		return this.isForeigner;
+	}
 	
+	public Gender getGender(){
+		return this.gender;
+	}
+
+	public DateInformation getDateInformation(){
+		return this.dateInformation;
+	}
+
+	public FamilyInformation getFamilyInformation(){
+		return this.familyInformation;
+	}
+
+	public FinancialInformation getFinancialInformation(){
+		return this.financialInformation;
+	}
 	
 	public int getAnnualIncomeTax() {
 		
