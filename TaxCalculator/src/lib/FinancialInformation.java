@@ -13,24 +13,29 @@ public class FinancialInformation{
 	 * Jika pegawai adalah warga negara asing gaji bulanan diperbesar sebanyak 50%
 	 */
 
-    public void setMonthlySalary(int grade, boolean isForeigner) {	
-		if (grade == 1) {
-			this.monthlySalary = 3000000;
-			if (isForeigner) {
-				this.monthlySalary = (int) (3000000 * 1.5);
-			}
-		}else if (grade == 2) {
-			this.monthlySalary = 5000000;
-			if (isForeigner) {
-				this.monthlySalary = (int) (5000000 * 1.5);
-			}
-		}else if (grade == 3) {
-			this.monthlySalary = 7000000;
-			if (isForeigner) {
-				this.monthlySalary = (int) (7000000 * 1.5);
-			}
-		}
-	}
+    public void setMonthlySalary(int grade, boolean isForeigner) {
+        int baseSalary;
+
+        switch (grade) {
+            case 1:
+                baseSalary = 3000000;
+                break;
+            case 2:
+                baseSalary = 5000000;
+                break;
+            case 3:
+                baseSalary = 7000000;
+                break;
+            default:
+                baseSalary = 0;
+        }
+
+        if (isForeigner) {
+            baseSalary *= 1.5;
+        }
+
+        this.monthlySalary = baseSalary;
+    }
 	
 	public void setAnnualDeductible(int deductible) {	
 		this.annualDeductible = deductible;
