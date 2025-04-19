@@ -11,12 +11,10 @@ public class DateInformation{
 	private int monthWorkingInYear;
 
     public DateInformation(int yearJoined, int monthJoined, int dayJoined){
-        LocalDate date = LocalDate.now();
-
         this.yearJoined = yearJoined;
         this.monthJoined = monthJoined;
         this.dayJoined = dayJoined;
-        this.monthWorkingInYear = date.getMonthValue() - monthJoined;
+        this.monthWorkingInYear = calculateMonthWorkingInYear();
     }
 
     public int getYearJoined(){
@@ -37,15 +35,26 @@ public class DateInformation{
 
     public void setYearJoined(int yearJoined){
         this.yearJoined = yearJoined;
+        this.monthWorkingInYear = calculateMonthWorkingInYear();
     }
 
     public void setMonthJoined(int monthJoined){
-        LocalDate date = LocalDate.now();
         this.monthJoined = monthJoined;
-        this.monthWorkingInYear = date.getMonthValue() - monthJoined;
+        
+        this.monthWorkingInYear = calculateMonthWorkingInYear(); 
     }
 
     public void setDayJoined(int dayJoined){
         this.dayJoined = dayJoined;
+    }
+
+    public int calculateMonthWorkingInYear(){
+        LocalDate date = LocalDate.now();
+
+        if (date.getYear() == this.yearJoined) {
+            return date.getMonthValue() - this.monthJoined;
+        } else {
+            return 12;
+        }
     }
 }
