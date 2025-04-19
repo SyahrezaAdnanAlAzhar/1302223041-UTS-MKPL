@@ -71,6 +71,10 @@ public class FamilyInformation{
         return matchingIds;
     }
 
+    public int getNumberOfChildren() {
+        return children.size();
+    }
+
     public boolean setChildNameById(String idNumber, String newName) {
         for (Child child : children) {
             if (child.getIdNumber().equals(idNumber)) {
